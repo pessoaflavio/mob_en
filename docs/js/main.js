@@ -28,13 +28,13 @@ function missingData(data,div,extradiv) {
         d3.select(div).select(extradiv).style('opacity',1);
         d3.select(div).select('span.red_dot').remove();
         if (div==='div.s02'){
-          return new Intl.NumberFormat('en-IN').format(data) + ' kg'
+          return new Intl.NumberFormat('en-US').format(data) + ' kg'
         } else if (div==='div.s07_01') {
-          return new Intl.NumberFormat('en-IN').format(data) + '%'
+          return new Intl.NumberFormat('en-US').format(data) + '%'
         } else if (div==='div.s07_02') {
-          return new Intl.NumberFormat('en-IN').format(data) + '%'
+          return new Intl.NumberFormat('en-US').format(data) + '%'
         } else {
-          return new Intl.NumberFormat('en-IN').format(data)
+          return new Intl.NumberFormat('en-US').format(data)
         }
 
       }
