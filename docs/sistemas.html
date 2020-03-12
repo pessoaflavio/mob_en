@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono:200,300,300i,400,400i,600,600i,700|IBM+Plex+Sans:200,300,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style/leaflet.css">
+    <script src="js/leaflet-src.js"></script>
+     <link rel="stylesheet" href="style/screen.css" />
+    <link rel="stylesheet" href="style/MarkerCluster.css" />
+    <link rel="stylesheet" href="style/MarkerCluster.Default.css" />
+    <script src="js/leaflet.markercluster-src.js"></script>
+    <link rel="stylesheet" type="text/css" href="style/style.css">
+    <script src="js/d3.min.js" charset="utf-8"></script>
+
+
+    <title></title>
+  </head>
+  <body>
+    <div class="hamburger">
+      <div class="hamburger_list">
+        <div class="hamburger_item"><a href="index.html">Brazil</a></div>
+        <div class="hamburger_item"><a href="cidades.html">Cities</a></div>
+        <div class="hamburger_item"><a href="operadoras.html">Operators</a></div>
+        <div class="hamburger_item"><a href="sobre.html">About</a></div>
+        <div class="hamburger_item"><a href="publicacoes.html">Publications</a></div>
+      </div>
+      <div class="close_hamburger">X</div>
+    </div>
+    <div class='bigcontainer'>
+      <div class='sides'></div>
+      <div class='total'>
+        <div class="menu">
+          <span class="hamburger_icon"><img src="img/hambg.svg"></span><a href="index.html"><img src="img/logo.svg" alt="logo" class='svglogo' width="190px" height="100px"></a>
+
+          <ul class="menu">
+            <li class="menuitem"><a href="index.html">Brazil</a></li>
+            <li class="menuitem"><a href="cidades.html">Cities</a></li>
+            <li class="menuitem"><a href="operadoras.html">Operators</a></li>
+            <li class="menuitem"><a href="sobre.html">About</a></li>
+            <li class="menuitem"><a href="publicacoes.html">Publications</a></li>
+          </ul>
+          <span><a href="http://micromobilidadebrasil.com/">PT</a> / <a href="index.html">EN</a></span>
+        </div>
+        <div class='artigo'>
+          <div class='container_2col'>
+            <div class='first_col'>
+              <h1>
+                Systems list in Brazil
+              </h1>
+              <ul class="list_sistema">
+
+              </ul>
+            </div>
+            <div class='second_col'>
+              <h1>
+                Systems by state
+              </h1>
+              <ul class="list_sistema">
+
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="footer">
+          <div class="footer-item">
+            <p>Development</p>
+            <img src="img/logos1.png" alt="logo" height="50px">
+          </div>
+          <div class="footer-item">
+            <p>Support</p>
+            <img src="img/logos2.png" alt="logo" height="50px">
+          </div>
+          <div class="footer-item">
+            <p>Partners</p>
+            <img src="img/logos3.png" alt="logo" height="50px">
+          </div>
+        </div>
+
+
+      </div>
+      <div class='sides'></div>
+    </div>
+  </body>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+
+
+    d3.json('data/final_file_labmob_v2.json').then(data => {
+      console.log(data)
+      d3
+      .select('div.first_col')
+      .select('ul.list_sistema')
+      .selectAll('li')
+      .data(data.sistema_total.sort(d3.ascending))
+      .enter()
+      .append('li')
+      .html(d=>`<span style="font-weight:200">${d}</span>`)
+      .style('margin-bottom','5px')
+      ;
+
+      d3
+      .select('div.second_col')
+      .select('ul.list_sistema')
+      .selectAll('li')
+      .data(data.sistema_por_estado.sort((a, b) => d3.ascending(a.estado, b.estado)))
+      .enter()
+      .append('li')
+      .html(function(d){
+        console.log(d)
+        let phrase = d.sistemas.sort(d3.ascending).join(", ")
+        return `<span style="font-weight:400">${d.estado}</span><br>${phrase}`
+        })
+      .style('margin-bottom','5px')
+      ;
+
+    });
+
+
+      d3.select('span.hamburger_icon')
+      .on('mousedown',function(){
+        d3.select('div.hamburger')
+        .style('display','flex')
+      })
+
+      d3.select('div.close_hamburger')
+      .on('mousedown',function(){
+        d3.select('div.hamburger')
+        .style('display','none')
+      })
+
+
+  </script>
+
+</html>

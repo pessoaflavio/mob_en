@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono:200,300,300i,400,400i,600,600i,700|IBM+Plex+Sans:200,300,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style/leaflet.css">
+    <script src="js/leaflet-src.js"></script>
+    <link rel="stylesheet" href="style/screen.css" />
+    <script src="js/leaflet-search.js"></script>
+    <link rel="stylesheet" href="style/leaflet-search.css" />
+    <link rel="stylesheet" href="style/MarkerCluster.css" />
+    <link rel="stylesheet" href="style/MarkerCluster.Default.css" />
+    <script src="js/leaflet.markercluster-src.js"></script>
+    <link rel="stylesheet" type="text/css" href="style/style.css">
+    <script src="js/d3.min.js" charset="utf-8"></script>
+
+
+    <title></title>
+  </head>
+  <body>
+    <div class="hamburger">
+      <div class="hamburger_list">
+        <div class="hamburger_item"><a href="index.html">Brazil</a></div>
+        <div class="hamburger_item"><a href="cidades.html">Cities</a></div>
+        <div class="hamburger_item"><a href="operadoras.html">Operators</a></div>
+        <div class="hamburger_item"><a href="sobre.html">About</a></div>
+        <div class="hamburger_item"><a href="publicacoes.html">Publications</a></div>
+      </div>
+      <div class="close_hamburger">X</div>
+    </div>
+    <div class='bigcontainer'>
+      <div class='sides'></div>
+      <div class='total'>
+        <div class="menu">
+          <span class="hamburger_icon"><img src="img/hambg.svg"></span><a href="index.html"><img src="img/logo.svg" alt="logo" class='svglogo' width="190px" height="100px"></a>
+
+          <ul class="menu">
+            <li class="menuitem"><a href="index.html">Brazil</a></li>
+            <li class="menuitem"><a href="cidades.html">Cities</a></li>
+            <li class="menuitem"><a href="operadoras.html">Operators</a></li>
+            <li class="menuitem"><a href="sobre.html">About</a></li>
+            <li class="menuitem"><a href="publicacoes.html">Publications</a></li>
+          </ul>
+          <span><a href="http://micromobilidadebrasil.com/">PT</a> / <a href="index.html">EN</a></span>
+        </div>
+        <div id="main">
+          <div id="map">
+
+          </div>
+          <div class="side">
+            <div class="s01">
+              <div id="s01"><h3>Brazil</h3></div>
+            </div>
+            <div class="s03"><span class="button"><a href="sistemas.html" class='nolink'>Systems list</a></span></div>
+            <div class="s02">
+              <span class="divheader">CO² savings/day</span>
+              <span class="bignumber"></span>
+            </div>
+            <div class='s04holder'>
+              <div class="s04">
+                <span class="divheader">Kilometers travelled/day</span>
+                <span class="bignumber"></span>
+              </div>
+              <div class="s04_00">
+                <span class="divheader"></span>
+                <span class="bignumber"></span>
+              </div>
+            </div>
+            <div class="s05">
+              <div class="s05_01">
+                <span class='divheader'>No. bikes</span>
+                <span class="smallnumber"></span>
+              </div>
+              <div class="s05_03">
+                <span class='divheader'>No. scooters</span>
+                <span class="smallnumber"></span>
+              </div>
+            </div>
+            <div class="s06">
+                <div class="s06_01">
+                  <span class='divheader'>Daily bike trips</span>
+                  <span class="bignumber"></span>
+                </div>
+            </div>
+            <div class="s07">
+              <div class="s07_01">
+                <span class='divheader'>Gender</span>
+                <div class='genholder'>
+                  <div class='gender'>
+                    <img src="img/homen.svg" alt="logo" width="11px" height="39px">
+                    <span class='men'></span>
+                  </div>
+                  <div class='gender'>
+                    <img src="img/mulher.svg" alt="logo" width="15px" height="39px">
+                    <span class='women'></span>
+                  </div>
+                </div>
+              </div>
+              <div class="s07_02">
+                <span class='divheader'>Age</span>
+                <br>
+                <span class="agelist">
+                  15 to 29: <span class="quinze"></span><br>
+                  30 to 59: <span class="trinta"></span><br>
+                  60+: <span class="sessenta"></span><br>
+                </span>
+              </div>
+              <div class="s07_03">
+                <span class='divheader'>Users</span><br>
+                <span class="bignumber"></span>
+              </div>
+            </div>
+            <div class="s08">
+              <div class="s08_01">
+                <span class><a href='data/micromobilidade_fonte_escopo_dados.pdf' target='_blank'>Source</a></span><span class="demodata"></span>
+              </div>
+              <div class="s08_02">
+                * Missing data
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="footer">
+          <div class="footer-item">
+            <p>Development</p>
+            <img src="img/logos1.png" alt="logo" height="50px">
+          </div>
+          <div class="footer-item">
+            <p>Support</p>
+            <img src="img/logos2.png" alt="logo" height="50px">
+          </div>
+          <div class="footer-item">
+            <p>Partners</p>
+            <img src="img/logos3.png" alt="logo" height="50px">
+          </div>
+        </div>
+      </div>
+      <div class='sides'></div>
+    </div>
+  </body>
+  <script>
+    d3.select('span.hamburger_icon')
+    .on('mousedown',function(){
+      d3.select('div.hamburger')
+      .style('display','flex')
+    })
+
+    d3.select('div.close_hamburger')
+    .on('mousedown',function(){
+      d3.select('div.hamburger')
+      .style('display','none')
+    })
+  </script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="js/main.js" charset="utf-8"  type="text/babel"></script>
+  <script src="js/cluster.js" charset="utf-8"  type="text/babel"></script>
+
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono:200,300,300i,400,400i,600,600i,700|IBM+Plex+Sans:200,300,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style/leaflet.css">
+    <script src="js/leaflet-src.js"></script>
+     <link rel="stylesheet" href="style/screen.css" />
+    <link rel="stylesheet" href="style/MarkerCluster.css" />
+    <link rel="stylesheet" href="style/MarkerCluster.Default.css" />
+    <script src="js/leaflet.markercluster-src.js"></script>
+    <link rel="stylesheet" type="text/css" href="style/style.css">
+    <script src="js/d3.min.js" charset="utf-8"></script>
+
+
+    <title></title>
+  </head>
+  <body>
+    <div class="hamburger">
+      <div class="hamburger_list">
+        <div class="hamburger_item"><a href="index.html">Brazil</a></div>
+        <div class="hamburger_item"><a href="cidades.html">Cities</a></div>
+        <div class="hamburger_item"><a href="operadoras.html">Operators</a></div>
+        <div class="hamburger_item"><a href="sobre.html">About</a></div>
+        <div class="hamburger_item"><a href="publicacoes.html">Publications</a></div>
+      </div>
+      <div class="close_hamburger">X</div>
+    </div>
+    <div class='bigcontainer'>
+      <div class='sides'></div>
+      <div class='total'>
+        <div class="menu">
+          <span class="hamburger_icon"><img src="img/hambg.svg"></span><a href="index.html"><img src="img/logo.svg" alt="logo" class='svglogo' width="190px" height="100px"></a>
+
+          <ul class="menu">
+            <li class="menuitem"><a href="index.html">Brazil</a></li>
+            <li class="menuitem"><a href="cidades.html">Cities</a></li>
+            <li class="menuitem"><a href="operadoras.html">Operators</a></li>
+            <li class="menuitem"><a href="sobre.html">About</a></li>
+            <li class="menuitem"><a href="publicacoes.html">Publications</a></li>
+          </ul>
+          <span><a href="http://micromobilidadebrasil.com/">PT</a> / <a href="index.html">EN</a></span>
+        </div>
+        <div class='artigo'>
+          <div class="head_geral">
+            About
+          </div>
+          <p class='base_texto_longo'>
+            The Micro-mobility Brazil Platform is coordinated by the Sustainable Mobility Laboratory [Laboratório de Mobilidade Sustentável] (LABMOB) from the Federal University of Rio de Janeiro (UFRJ) with support from the Climate and Society Institute [InstitutoClima e Sociedade] (iCS) and performed in partnership with the Institute of Energy and Environment (IEMA). The Platform’s objectives are to map public micro-mobility systems, to promote data transparency, and to quantify CO² savings.
+          </p>
+          <p class='base_texto_longo'>
+            Public micro-mobility systems have grown exponentially in Brazilian cities. Before a scenario of congestion and environmental damage resulting from the widespread use of vehicles powered by fossil fuels, they come up as an alternative initiative to encourage active and sustainable transportation for daily commuting. The concept of micro-mobility assigns to displacements carried out by light vehicles connected to new technologies operated by electrical energy or human force. These vehicles are often used in combination with other modes of transportation, usually during the so-called first or/and last-mile trips.
+          </p>
+          <p class='base_texto_longo'>
+            Nowadays, there are more than a thousand cities around the world operating shared micro-mobility systems. Regularly, these systems are public and regulated by the municipal authorities. However, in many cases, they can also be operated by private sector companies. Current sharing services have two primary arrangements: docking (station-based) and dockless systems (which vehicles are unlocked using a smartphone app and parked within a defined district along the sidewalk). These systems commonly offer the rental of bicycles and scooters, and the number of vehicles available can vary from place to place.
+          </p>
+          <p class='base_texto_longo'>
+            The Micro-mobility Brazil Platform presents data said by the three largest systems operating companies in Brazil (Tembici, Grow, and Serttel) regarding the year of 2019. The temporal scope varies from case to case; some reference values presented on the platform may differ as well (i.e., number of vehicles available in each system). In general, the values shown correspond to daily averages computed over periods ranging from three to six months of system activity in 2019. For more information, access <a href='data/micromobilidade_fonte_escopo_dados.pdf' target='_blank'>this link</a> for a detailed report on the methodology we applied.
+          </p>
+          <p class='base_texto_longo'>
+            In partnership with the Energy and Environment Institute [Instituto de Energia e MeioAmbiente] (IEMA), we developed a formula to calculate Carbon Dioxide (CO2) emissions savings based on the following indicators:
+
+1) Mileage traveled in the system according to the average daily use counted;
+2) Percentage share (%) of the mode of transportation powered by fossil fuel (automobile or motorcycle) in the modal division of the municipality where the system is located (so that we estimated related to the modal replacement by users of the micro-mobility services;
+3) CO2e emission factor regarding the mode of transportation powered by fossil fuel (automobile or motorcycle), measured in gCO2e / km, varying according to the municipality of analysis.
+
+In <a href='data/micromobilidade_fonte_escopo_dados.pdf' target='_blank'>this link</a>, you will find the methodology in detail the calculation of emissions saved.
+          </p>
+        </div>
+        <div class="footer">
+          <div class="footer-item">
+            <p>Development</p>
+            <img src="img/logos1.png" alt="logo" height="50px">
+          </div>
+          <div class="footer-item">
+            <p>Support</p>
+            <img src="img/logos2.png" alt="logo" height="50px">
+          </div>
+          <div class="footer-item">
+            <p>Partners</p>
+            <img src="img/logos3.png" alt="logo" height="50px">
+          </div>
+        </div>
+      </div>
+      <div class='sides'></div>
+    </div>
+  </body>
+
+  <script>
+    d3.select('span.hamburger_icon')
+    .on('mousedown',function(){
+      d3.select('div.hamburger')
+      .style('display','flex')
+    })
+
+    d3.select('div.close_hamburger')
+    .on('mousedown',function(){
+      d3.select('div.hamburger')
+      .style('display','none')
+    })
+  </script>
+
+  <!-- <script src="js/main.js" charset="utf-8"  type="module"></script>
+  <script src="js/cluster.js" charset="utf-8"  type="module"></script> -->
+</html>

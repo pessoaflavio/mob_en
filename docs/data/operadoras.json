@@ -1,0 +1,27 @@
+[{
+	"operadora": "Yellow",
+	"cidades": [{
+		"cidade": "Belém",
+		"lat": -1.4554,
+		"long": -48.4898
+	}, {
+		"cidade": "Belo Horizonte",
+		"lat": -19.9102,
+		"long": -43.9266
+	}, {
+		"cidade": "Bertioga",
+		"lat": -23.8486,
+		"long": -46.1396
+	}]
+}, {
+	"operadora": "Red",
+	"cidades": [{
+		"cidade": "Beléxxxxm",
+		"lat": -9,
+		"long": -80
+	}, {
+		"cidade": "ssdsd Horizonte",
+		"lat": -11,
+		"long": -43.9266
+	}]
+}]
