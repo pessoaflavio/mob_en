@@ -122,7 +122,7 @@ function checkEl(elem){
   return Number.isInteger(elem)
 }
 
-const myRequest = new Request('data/final_file_labmob_v8.json');
+const myRequest = new Request('data/versao_2020_03_13.json');
 
 fetch(myRequest)
   .then(response => response.json())
