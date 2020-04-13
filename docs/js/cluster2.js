@@ -43,7 +43,7 @@ fetch(myRequest)
                         .then(response=>response.json())
                         .then(data => L.geoJSON(data,{style: myStyle}).addTo(map));
 
-    let array_estados_em_layer = []
+    let municipios_layer = []
     let cluster_options = {
       chunkedLoading: true,
       zoomToBoundsOnClick: true,
@@ -54,18 +54,13 @@ fetch(myRequest)
         fill: false
         }
       }
-    let markers = L.markerClusterGroup();
+    let markers = L.markerClusterGroup(cluster_options);
     // adicionar layers
     function fillMap(municipiosListados){
       console.log(municipiosListados)
       // usar dados
-      let estados_listados = municipiosListados.map(cidade => cidade.estado)
-      let estados_unicos = [...new Set(estados_listados)]
-      for (var j = 0; j < estados_unicos.length; j++){
-        let grupo_cidades = []
-        let current_cities = data.municipios.filter(cidade => cidade.estado == estados_unicos[j])
-        for (var i = 0; i < current_cities.length; i++) {
-          var a = current_cities[i];
+        for (var i = 0; i < municipiosListados.length; i++) {
+          var a = municipiosListados[i];
           var title = a.cidade
           var jovem = a['15_até_29_anos']
           var adulto = a['30_até_59_anos']
@@ -84,16 +79,15 @@ fetch(myRequest)
             sistemas: a.sistemas,
             }
           );
-          grupo_cidades.push(marker2);
+          var grupo_final = L.layerGroup([marker2]);
+          municipios_layer.push(grupo_final)
         }
-        var estado_agrupado = L.layerGroup(grupo_cidades);
-        array_estados_em_layer.push(estado_agrupado)
-      }
-      array_estados_em_layer.forEach(layer => markers.addLayer(layer))
+
+      municipios_layer.forEach(layer => markers.addLayer(layer))
 
     }
     function updateData(data,data2 = 1){
-        array_estados_em_layer = []
+        municipios_layer = []
         console.log(data2)
         let municipiosListados;
         if (data2==1){
@@ -191,7 +185,7 @@ fetch(myRequest)
     .attr('class', 'operadora')
     .text(d => d)
     .on('click',function(d){
-      array_estados_em_layer.forEach(layer => markers.removeLayer(layer))
+      municipios_layer.forEach(layer => markers.removeLayer(layer))
       let system_array = data.cidade_por_operadora.filter(object => object.operadora == d)
       updateData(data,system_array[0].municipios)
     });
