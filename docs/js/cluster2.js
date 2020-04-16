@@ -19,7 +19,7 @@ function offset(el) {
     return { top: rect.top , left: rect.left }
 }
 
-const myRequest = new Request('data/dados_2020.json');
+const myRequest = new Request('data/dados_atuais.json');
 
 fetch(myRequest)
   .then(response => response.json())

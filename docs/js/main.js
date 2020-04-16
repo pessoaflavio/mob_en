@@ -128,4 +128,4 @@ function loadData(data){
   d3.json(data).then(data => fillSidePanel(data));
 };
 
-loadData('data/dados_2020.json')
+loadData('data/dados_atuais.json')
